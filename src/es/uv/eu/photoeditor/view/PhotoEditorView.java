@@ -2,6 +2,8 @@ package es.uv.eu.photoeditor.view;
 
 import es.uv.eu.photoeditor.model.PhotoEditorModel;
 import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.event.ChangeListener;
@@ -23,7 +25,7 @@ public class PhotoEditorView extends JFrame {
         this.setSize(1500, 1000);
         
         this.model = model;
-        this.imagePanel = new ImagePanel();
+        this.imagePanel = new ImagePanel(model);
         this.widthPanel = new WidthPanel();
         this.statusPanel = new StatusPanel(widthPanel);
         widthPanel.setStatusPanel(statusPanel);
@@ -39,12 +41,25 @@ public class PhotoEditorView extends JFrame {
         getRootPane().setBorder(BorderFactory.createMatteBorder(8, 8, 8, 8, this.getBackground()));
         this.setVisible(true);
     }
-    
-    public void setChangeListener(ChangeListener cl) {
-        widthPanel.setChangeListener(cl);
-    }
 
     public StatusPanel getStatusPanel() {
         return statusPanel;
+    }
+
+    public ImagePanel getImagePanel() {
+        return imagePanel;
+    }
+    
+     public void setChangeListener(ChangeListener cl) {
+        widthPanel.setChangeListener(cl);
+    }
+     
+    public void setActionListener(ActionListener al) {
+        selectPanel.setActionListener(al);
+        menu.setActionListener(al);
+    }
+    
+    public void setMouseListener(MouseAdapter ma) {
+        imagePanel.setMouseListener(ma);
     }
 }

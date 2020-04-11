@@ -1,9 +1,8 @@
 package es.uv.eu.photoeditor.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
-import javax.swing.BoxLayout;
+import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 public class SelectPanel extends JPanel {
@@ -17,10 +16,15 @@ public class SelectPanel extends JPanel {
     
     public SelectPanel() {
         this.setLayout(new GridLayout(2, 1, 0, 5));
-        this.colorPanel1 = new ColorPanel(colors, colorsNames, "Color 1:");
-        this.colorPanel2 = new ColorPanel(colors, colorsNames, "Color 2:");
+        this.colorPanel1 = new ColorPanel(1, colors, colorsNames, "Color 1:");
+        this.colorPanel2 = new ColorPanel(2, colors, colorsNames, "Color 2:");
         this.add(colorPanel1);
         this.add(colorPanel2);
+    }
+    
+    public void setActionListener (ActionListener al) {
+        colorPanel1.setActionListener(al);
+        colorPanel2.setActionListener(al);
     }
     
 }

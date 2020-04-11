@@ -13,8 +13,7 @@ public class SaveImage extends JFileChooser {
     }
   
     public File getFile() {
-        int ret = showDialog(null, "Guardar imagen");
-
+        int ret = showDialog(null, "Save image");
         if (ret == JFileChooser.APPROVE_OPTION) {
             return getSelectedFile();
         }

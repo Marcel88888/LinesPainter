@@ -33,7 +33,7 @@ public class PhotoEditorModel {
         return imageFileName;
     }
 
-    public void loadImagen(File imageFile) {
+    public void loadImage(File imageFile) {
         if (imageFile != null) {
             this.imageFileName = imageFile.getName();
             try {
@@ -46,7 +46,7 @@ public class PhotoEditorModel {
         }
     }
 
-    public void saveImagen(File imagenFile) {
+    public void saveImage(File imagenFile) {
         if (imagenFile != null) {
             try {
                 this.imageFileName = imagenFile.getName();
@@ -58,14 +58,13 @@ public class PhotoEditorModel {
             }
         }
     }
-    public void pintaRectangulo (int x, int y, int x2, int y2, int width, Color color2, Color color1){
+    public void drawRectangle (int x, int y, int x2, int y2, int width, Color color2, Color color1){
         Graphics2D gr = (Graphics2D)image.getGraphics();
         GradientPaint gradient= new GradientPaint(0,0,color2, 175,175, color1, true);
         
         gr.setPaint(gradient);
         gr.setStroke(new BasicStroke(width));
-        gr.draw(new Line2D.Double(x,y,x2,y2));
-            
+        gr.draw(new Line2D.Double(x,y,x2,y2));   
     }
      
 }

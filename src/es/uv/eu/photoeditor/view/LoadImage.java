@@ -6,12 +6,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class LoadImage extends JFileChooser {
     
-    private static final String[] EXTENSIONES = { "jpg", "jpeg", "png", "gif",
+    private static final String[] EXTENSIONS = { "jpg", "jpeg", "png", "gif",
         "tiff", "JPG", "JPEG" };
     
     public LoadImage() {
         super();
-        FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Imágenes", EXTENSIONES);
+        FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Images", EXTENSIONS);
         this.setFileSelectionMode(JFileChooser.FILES_ONLY);
         this.setDialogType(JFileChooser.OPEN_DIALOG);
         this.setFileFilter(extensionFilter);
@@ -19,8 +19,7 @@ public class LoadImage extends JFileChooser {
     }
   
     public File getFile() {
-        int ret = showDialog(null, "Abrir imagen");
-
+        int ret = showDialog(null, "Open image");
         if (ret == JFileChooser.APPROVE_OPTION) {
             return getSelectedFile();
         }

@@ -2,7 +2,6 @@ package es.uv.eu.photoeditor.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -58,23 +57,31 @@ public class StatusPanel extends JPanel {
         color2.setBackground(Color.BLACK);
         
         Dimension smallGap = new Dimension(5, 0);
-        Dimension bigGap = new Dimension(270, 0);
         
         this.add(Box.createRigidArea(new Dimension(70, 0)));
         this.add(widthText);
         this.add(Box.createRigidArea(smallGap));
         this.add(widthValueLabel);
-        this.add(Box.createRigidArea(bigGap));
+        this.add(Box.createHorizontalGlue());
         this.add(color1Text);
         this.add(Box.createRigidArea(smallGap));
         this.add(color1);
-        this.add(Box.createRigidArea(bigGap));
+        this.add(Box.createHorizontalGlue());
         this.add(color2Text);
         this.add(Box.createRigidArea(smallGap));
         this.add(color2);
+        this.add(Box.createHorizontalGlue());
     }
 
     public JLabel getWidthValueLabel() {
         return widthValueLabel;
-    }  
+    } 
+
+    public JLabel getColor1() {
+        return color1;
+    }
+
+    public JLabel getColor2() {
+        return color2;
+    }
 }
