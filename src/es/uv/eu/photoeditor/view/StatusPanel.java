@@ -1,6 +1,5 @@
 package es.uv.eu.photoeditor.view;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
