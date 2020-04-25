@@ -9,6 +9,6 @@ public class PhotoEditor {
     public static void main(String[] args) {
         PhotoEditorModel model = new PhotoEditorModel();
         PhotoEditorView view = new PhotoEditorView(model);
-        PhotoEditorController controller = new PhotoEditorController(model, view);
+        new PhotoEditorController(model, view);
     }
 }

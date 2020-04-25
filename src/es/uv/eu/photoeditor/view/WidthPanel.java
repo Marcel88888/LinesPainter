@@ -1,8 +1,7 @@
 package es.uv.eu.photoeditor.view;
 
-import java.awt.Dimension;
+import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
@@ -12,36 +11,30 @@ import javax.swing.event.ChangeListener;
 
 public class WidthPanel extends JPanel {
     
-    StatusPanel statusPanel;
-    JLabel sliderTitle;
-    JSlider widthSlider;
+    private PhotoEditorView view;
+    private StatusPanel statusPanel;
+    private JLabel sliderTitle;
+    private JSlider widthSlider;
     
-    public WidthPanel() {
-        this.setLayout(new FlowLayout(FlowLayout.LEFT));
+    public WidthPanel(PhotoEditorView view) {
+        this.setLayout(new BorderLayout());
         this.sliderTitle = new JLabel("Thickness of the rectangle:");
         this.widthSlider = new JSlider(1, 1000);
+        this.view = view;
         this.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
-        
-        /*sliderTitle.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
-        widthSlider.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
-        
-        /*sliderTitle.setPreferredSize(new Dimension(210, 20));
-        sliderTitle.setMinimumSize(sliderTitle.getPreferredSize());
-        sliderTitle.setMaximumSize(sliderTitle.getPreferredSize());*/
-        
+
         sliderTitle.setFont(new Font("Dialog", Font.BOLD, 13));
+        sliderTitle.setBorder(BorderFactory.createEmptyBorder(10, 8, 0, 0));
         
-        widthSlider.setPreferredSize(new Dimension(1480, 75));
-        widthSlider.setMinimumSize(widthSlider.getPreferredSize());
-        widthSlider.setMaximumSize(widthSlider.getPreferredSize());
         widthSlider.setMajorTickSpacing(100);
         widthSlider.setMinorTickSpacing(10);
+        widthSlider.setValue(view.getModel().getRectangleWidth());
         widthSlider.setPaintTicks(true);
         widthSlider.setPaintLabels(true);
         widthSlider.setFont(new Font("Symbol", Font.PLAIN, 15));   
         
-        this.add(sliderTitle);
-        this.add(widthSlider);
+        this.add(widthSlider, BorderLayout.CENTER);
+        this.add(sliderTitle, BorderLayout.NORTH);
     }
 
     public void setStatusPanel(StatusPanel statusPanel) {

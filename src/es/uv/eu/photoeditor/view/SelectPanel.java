@@ -26,5 +26,16 @@ public class SelectPanel extends JPanel {
         colorPanel1.setActionListener(al);
         colorPanel2.setActionListener(al);
     }
-    
+
+    public Color[] getColors() {
+        return colors;
+    }
+
+    public ColorPanel getColorPanel1() {
+        return colorPanel1;
+    }
+
+    public ColorPanel getColorPanel2() {
+        return colorPanel2;
+    }
 }

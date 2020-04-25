@@ -13,18 +13,20 @@ import javax.swing.border.EtchedBorder;
 
 public class StatusPanel extends JPanel {
     
-    WidthPanel widthPanel;
-    JLabel widthText;
-    JLabel widthValueLabel;
-    JLabel color1Text;
-    JLabel color1;
-    JLabel color2Text;
-    JLabel color2;
+    private PhotoEditorView view;
+    private WidthPanel widthPanel;
+    private JLabel widthText;
+    private JLabel widthValueLabel;
+    private JLabel color1Text;
+    private JLabel color1;
+    private JLabel color2Text;
+    private JLabel color2;
     
-    public StatusPanel(WidthPanel widthPanel) {
+    public StatusPanel(PhotoEditorView view, WidthPanel widthPanel) {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.setPreferredSize(new Dimension(1500, 50));
         this.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+        this.view = view;
         this.widthPanel = widthPanel;
         this.widthText = new JLabel("Thickness of the rectangle:");
         this.widthValueLabel = new JLabel(String.valueOf(widthPanel.getWidthSlider().getValue()), SwingConstants.RIGHT);
@@ -48,13 +50,13 @@ public class StatusPanel extends JPanel {
         color1.setMinimumSize(color1.getPreferredSize());
         color1.setMaximumSize(color1.getPreferredSize());
         color1.setOpaque(true);
-        color1.setBackground(Color.BLACK);
+        color1.setBackground(view.getModel().getChosenColor1());
         color2.setPreferredSize(colorDimension);
         color2.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
         color2.setMinimumSize(color2.getPreferredSize());
         color2.setMaximumSize(color2.getPreferredSize());
         color2.setOpaque(true);
-        color2.setBackground(Color.BLACK);
+        color2.setBackground(view.getModel().getChosenColor2());
         
         Dimension smallGap = new Dimension(5, 0);
         

@@ -10,24 +10,24 @@ import javax.swing.event.ChangeListener;
 
 public class PhotoEditorView extends JFrame {
     
-    PhotoEditorModel model;
-    ImagePanel imagePanel;
-    WidthPanel widthPanel;
-    StatusPanel statusPanel;
-    SelectPanel selectPanel;
-    PhotoEditorMenuBar menu;
+    private PhotoEditorModel model;
+    private ImagePanel imagePanel;
+    private WidthPanel widthPanel;
+    private StatusPanel statusPanel;
+    private SelectPanel selectPanel;
+    private PhotoEditorMenuBar menu;
     
     
     public PhotoEditorView(PhotoEditorModel model) {
         
         super("PhotoEditor");
         this.setLayout(new BorderLayout(17, 8));
-        this.setSize(1500, 1000);
+        this.setSize(1675, 1000);
         
         this.model = model;
         this.imagePanel = new ImagePanel(model);
-        this.widthPanel = new WidthPanel();
-        this.statusPanel = new StatusPanel(widthPanel);
+        this.widthPanel = new WidthPanel(this);
+        this.statusPanel = new StatusPanel(this, widthPanel);
         widthPanel.setStatusPanel(statusPanel);
         this.selectPanel = new SelectPanel();
         this.menu = new PhotoEditorMenuBar();
@@ -42,15 +42,27 @@ public class PhotoEditorView extends JFrame {
         this.setVisible(true);
     }
 
+    public PhotoEditorModel getModel() {
+        return model;
+    }
+
     public StatusPanel getStatusPanel() {
         return statusPanel;
+    }
+
+    public SelectPanel getSelectPanel() {
+        return selectPanel;
     }
 
     public ImagePanel getImagePanel() {
         return imagePanel;
     }
+
+    public WidthPanel getWidthPanel() {
+        return widthPanel;
+    }
     
-     public void setChangeListener(ChangeListener cl) {
+    public void setChangeListener(ChangeListener cl) {
         widthPanel.setChangeListener(cl);
     }
      

@@ -4,7 +4,8 @@ import es.uv.eu.photoeditor.model.PhotoEditorModel;
 import es.uv.eu.photoeditor.view.LoadImage;
 import es.uv.eu.photoeditor.view.PhotoEditorView;
 import es.uv.eu.photoeditor.view.SaveImage;
-import java.awt.Color;
+import es.uv.eu.photoeditor.view.SelectPanel;
+import es.uv.eu.photoeditor.view.StatusPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -30,22 +31,26 @@ public class PhotoEditorController {
         view.setMouseListener(new PhotoEditorMouseListener());
     }
     
-    class PhotoEditorActionListener implements ActionListener {
+    private class PhotoEditorActionListener implements ActionListener {
+        
         @Override
         public void actionPerformed(ActionEvent ae) {
             String command = ae.getActionCommand();
             if (ae.getSource() instanceof JButton) {
                 JButton button = (JButton) ae.getSource();
+                SelectPanel selectPanel = view.getSelectPanel();
                 switch (command) {
                     case "changeColor1":
-                        view.getStatusPanel().getColor1().setBackground(button.getBackground());
+                        model.setChosenColor1(selectPanel.getColors()[selectPanel.getColorPanel1().getColorButtons().indexOf(button)]);
+                        view.getStatusPanel().getColor1().setBackground(model.getChosenColor1());
                         break;
                     case "changeColor2":
-                        view.getStatusPanel().getColor2().setBackground(button.getBackground());
+                        model.setChosenColor2(selectPanel.getColors()[selectPanel.getColorPanel2().getColorButtons().indexOf(button)]);
+                        view.getStatusPanel().getColor2().setBackground(model.getChosenColor2());
                         break;
                     default:
                         System.out.println("Controller: Command " + command + 
-                            " no recognised.");
+                            " not recognised.");
                         break;
                 }
             }
@@ -64,42 +69,58 @@ public class PhotoEditorController {
                         System.exit(0);
                     default:
                         System.out.println("Controller: Command " + command + 
-                            " no recognised.");
+                            " not recognised.");
                         break;    
                 }
             }
         }
     }
     
-    class PhotoEditorWindowListener extends WindowAdapter {
+    private class PhotoEditorWindowListener extends WindowAdapter {
         @Override
         public void windowClosing(WindowEvent e) {
             System.exit(0);
         }
     }
     
-    class PhotoEditorChangeListener implements ChangeListener {
+    private class PhotoEditorChangeListener implements ChangeListener {
         @Override
         public void stateChanged(ChangeEvent ce) {
             int currentWidth = ((JSlider)ce.getSource()).getValue();
-            view.getStatusPanel().getWidthValueLabel().setText(String.valueOf(currentWidth));
+            model.setRectangleWidth(currentWidth);
+            view.getStatusPanel().getWidthValueLabel().setText(String.valueOf(model.getRectangleWidth()));
         }
     }
     
-    class PhotoEditorMouseListener extends MouseAdapter {
+    private class PhotoEditorMouseListener extends MouseAdapter {
+        
+        private int xStartingPoint, yStartingPoint;
 
         @Override
-        public void mouseClicked(MouseEvent me) {
-            if(me.getButton() == MouseEvent.BUTTON1)
-            {
-                System.out.println(me.getX());
-                System.out.println(me.getY());
-                model.drawRectangle(me.getX(), me.getY(), 100, 100, 50, Color.black, Color.black);
+        public void mousePressed(MouseEvent me) {
+            if(me.getButton() == MouseEvent.BUTTON1) {
+                xStartingPoint = me.getX();
+                yStartingPoint = me.getY();
+            }
+        }
+        
+        @Override
+        public void mouseReleased(MouseEvent me) {
+            if(me.getButton() == MouseEvent.BUTTON1) {
+                model.drawRectangle(xStartingPoint, yStartingPoint, me.getX(), me.getY(),
+                        model.getRectangleWidth(),
+                        model.getChosenColor1(), 
+                        model.getChosenColor2());
                 view.getImagePanel().repaint();
             }
-            else if(me.getButton() == MouseEvent.BUTTON3)
-            {
-                System.err.println("bbb");
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent me) {
+            if(me.getButton() == MouseEvent.BUTTON3) {
+                StatusPanel statusPanel = view.getStatusPanel();
+                model.setChosenColor2(model.getChosenColor1());
+                statusPanel.getColor2().setBackground(model.getChosenColor1());
             }
         }
     }

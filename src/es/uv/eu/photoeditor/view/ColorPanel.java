@@ -46,4 +46,8 @@ public class ColorPanel extends JPanel {
             colorButton.setActionCommand("changeColor" + colorNumber);
         }
     }
+
+    public ArrayList<JButton> getColorButtons() {
+        return colorButtons;
+    }
 }
