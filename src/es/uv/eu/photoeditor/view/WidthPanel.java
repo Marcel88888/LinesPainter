@@ -28,7 +28,7 @@ public class WidthPanel extends JPanel {
         
         widthSlider.setMajorTickSpacing(100);
         widthSlider.setMinorTickSpacing(10);
-        widthSlider.setValue(view.getModel().getRectangleWidth());
+        widthSlider.setValue(view.getModel().getRectangleThickness());
         widthSlider.setPaintTicks(true);
         widthSlider.setPaintLabels(true);
         widthSlider.setFont(new Font("Symbol", Font.PLAIN, 15));   

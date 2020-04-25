@@ -86,9 +86,9 @@ public class PhotoEditorController {
     private class PhotoEditorChangeListener implements ChangeListener {
         @Override
         public void stateChanged(ChangeEvent ce) {
-            int currentWidth = ((JSlider)ce.getSource()).getValue();
-            model.setRectangleWidth(currentWidth);
-            view.getStatusPanel().getWidthValueLabel().setText(String.valueOf(model.getRectangleWidth()));
+            int currentThickness = ((JSlider)ce.getSource()).getValue();
+            model.setRectangleThickness(currentThickness);
+            view.getStatusPanel().getWidthValueLabel().setText(String.valueOf(model.getRectangleThickness()));
         }
     }
     
@@ -108,7 +108,7 @@ public class PhotoEditorController {
         public void mouseReleased(MouseEvent me) {
             if(me.getButton() == MouseEvent.BUTTON1) {
                 model.drawRectangle(xStartingPoint, yStartingPoint, me.getX(), me.getY(),
-                        model.getRectangleWidth(),
+                        model.getRectangleThickness(),
                         model.getChosenColor1(), 
                         model.getChosenColor2());
                 view.getImagePanel().repaint();
@@ -117,7 +117,7 @@ public class PhotoEditorController {
         
         @Override
         public void mouseClicked(MouseEvent me) {
-            if(me.getButton() == MouseEvent.BUTTON3) {
+            if(me.getButton() == MouseEvent.BUTTON3 && model.getChosenColor1() != model.getChosenColor2()) {
                 StatusPanel statusPanel = view.getStatusPanel();
                 model.setChosenColor2(model.getChosenColor1());
                 statusPanel.getColor2().setBackground(model.getChosenColor1());
