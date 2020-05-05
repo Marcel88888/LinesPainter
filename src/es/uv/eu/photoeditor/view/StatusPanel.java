@@ -28,7 +28,7 @@ public class StatusPanel extends JPanel {
         this.view = view;
         this.widthPanel = widthPanel;
         this.widthText = new JLabel("Thickness of the rectangle:");
-        this.widthValueLabel = new JLabel(String.valueOf(widthPanel.getWidthSlider().getValue()), SwingConstants.RIGHT);
+        this.widthValueLabel = new JLabel(String.valueOf(view.getModel().getRectangleWidth()), SwingConstants.RIGHT);
         this.color1Text = new JLabel("Color 1:");
         this.color1 = new JLabel();
         this.color2Text = new JLabel("Color 2:");
@@ -84,5 +84,9 @@ public class StatusPanel extends JPanel {
 
     public JLabel getColor2() {
         return color2;
+    }
+    
+    public void updateWidthValueLabel(int width) {
+        widthValueLabel.setText(String.valueOf(width));
     }
 }

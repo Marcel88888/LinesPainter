@@ -2,9 +2,11 @@ package es.uv.eu.photoeditor.view;
 
 import es.uv.eu.photoeditor.model.PhotoEditorModel;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.event.ChangeListener;
 
@@ -28,7 +30,6 @@ public class PhotoEditorView extends JFrame {
         this.imagePanel = new ImagePanel(model);
         this.widthPanel = new WidthPanel(this);
         this.statusPanel = new StatusPanel(this, widthPanel);
-        widthPanel.setStatusPanel(statusPanel);
         this.selectPanel = new SelectPanel();
         this.menu = new PhotoEditorMenuBar();
         
@@ -73,5 +74,25 @@ public class PhotoEditorView extends JFrame {
     
     public void setMouseListener(MouseAdapter ma) {
         imagePanel.setMouseListener(ma);
+    }
+    
+    public void updateStatusPanelWidthValue(int width) {
+        statusPanel.updateWidthValueLabel(width);
+    }
+    
+    public void updateStatusPanelColor1(Color color1) {
+        statusPanel.getColor1().setBackground(color1);
+    }
+    
+    public void updateStatusPanelColor2(Color color2) {
+        statusPanel.getColor2().setBackground(color2);
+    }
+    
+    public Color getColor1ByButton(JButton button) {
+        return selectPanel.getColor1ByButton(button);
+    }
+    
+    public Color getColor2ByButton(JButton button) {
+        return selectPanel.getColor2ByButton(button);
     }
 }

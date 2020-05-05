@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import javax.swing.JButton;
 
 public class SelectPanel extends JPanel {
     
@@ -37,5 +38,13 @@ public class SelectPanel extends JPanel {
 
     public ColorPanel getColorPanel2() {
         return colorPanel2;
+    }
+    
+    public Color getColor1ByButton(JButton button) {
+        return colors[colorPanel1.getColorButtons().indexOf(button)];
+    }
+    
+    public Color getColor2ByButton(JButton button) {
+        return colors[colorPanel2.getColorButtons().indexOf(button)];
     }
 }

@@ -12,7 +12,6 @@ import javax.swing.event.ChangeListener;
 public class WidthPanel extends JPanel {
     
     private PhotoEditorView view;
-    private StatusPanel statusPanel;
     private JLabel sliderTitle;
     private JSlider widthSlider;
     
@@ -28,17 +27,13 @@ public class WidthPanel extends JPanel {
         
         widthSlider.setMajorTickSpacing(100);
         widthSlider.setMinorTickSpacing(10);
-        widthSlider.setValue(view.getModel().getRectangleThickness());
+        widthSlider.setValue(view.getModel().getRectangleWidth());
         widthSlider.setPaintTicks(true);
         widthSlider.setPaintLabels(true);
         widthSlider.setFont(new Font("Symbol", Font.PLAIN, 15));   
         
         this.add(widthSlider, BorderLayout.CENTER);
         this.add(sliderTitle, BorderLayout.NORTH);
-    }
-
-    public void setStatusPanel(StatusPanel statusPanel) {
-        this.statusPanel = statusPanel;
     }
 
     public JSlider getWidthSlider() {

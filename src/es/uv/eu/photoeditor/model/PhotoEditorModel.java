@@ -14,7 +14,7 @@ public class PhotoEditorModel {
     
     private BufferedImage image;
     private String imageFileName = "";
-    private int rectangleThickness = 50;
+    private int rectangleWidth = 50;
     private Color chosenColor1 = Color.GREEN;
     private Color chosenColor2 = Color.RED;
 
@@ -72,8 +72,8 @@ public class PhotoEditorModel {
         gr.draw(new Line2D.Double(x,y,x2,y2));   
     }
 
-    public void setRectangleThickness(int rectangleThickness) {
-        this.rectangleThickness = rectangleThickness;
+    public void setRectangleWidth(int rectangleWidth) {
+        this.rectangleWidth = rectangleWidth;
     }
 
     public void setChosenColor1(Color chosenColor1) {
@@ -84,8 +84,8 @@ public class PhotoEditorModel {
         this.chosenColor2 = chosenColor2;
     }
 
-    public int getRectangleThickness() {
-        return rectangleThickness;
+    public int getRectangleWidth() {
+        return rectangleWidth;
     }
 
     public Color getChosenColor1() {
