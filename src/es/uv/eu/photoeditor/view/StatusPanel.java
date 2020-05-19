@@ -13,7 +13,6 @@ import javax.swing.border.EtchedBorder;
 public class StatusPanel extends JPanel {
     
     private PhotoEditorView view;
-    private WidthPanel widthPanel;
     private JLabel widthText;
     private JLabel widthValueLabel;
     private JLabel color1Text;
@@ -21,12 +20,11 @@ public class StatusPanel extends JPanel {
     private JLabel color2Text;
     private JLabel color2;
     
-    public StatusPanel(PhotoEditorView view, WidthPanel widthPanel) {
+    public StatusPanel(PhotoEditorView view) {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.setPreferredSize(new Dimension(1500, 50));
         this.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
         this.view = view;
-        this.widthPanel = widthPanel;
         this.widthText = new JLabel("Thickness of the rectangle:");
         this.widthValueLabel = new JLabel(String.valueOf(view.getModel().getRectangleWidth()), SwingConstants.RIGHT);
         this.color1Text = new JLabel("Color 1:");

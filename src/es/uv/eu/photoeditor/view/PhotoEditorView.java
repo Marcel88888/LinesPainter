@@ -29,7 +29,7 @@ public class PhotoEditorView extends JFrame {
         this.model = model;
         this.imagePanel = new ImagePanel(model);
         this.widthPanel = new WidthPanel(this);
-        this.statusPanel = new StatusPanel(this, widthPanel);
+        this.statusPanel = new StatusPanel(this);
         this.selectPanel = new SelectPanel();
         this.menu = new PhotoEditorMenuBar();
         
