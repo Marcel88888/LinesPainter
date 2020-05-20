@@ -33,7 +33,6 @@ public class StatusPanel extends JPanel {
         this.color2 = new JLabel();
         
         widthValueLabel.setPreferredSize(new Dimension(37, 20));
-        widthValueLabel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
         widthValueLabel.setMinimumSize(widthValueLabel.getPreferredSize());
         widthValueLabel.setMaximumSize(widthValueLabel.getPreferredSize());
         Border etchedBorder = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
