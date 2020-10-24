@@ -12,6 +12,11 @@ Project made for the subject Human Computer Interaction on the Universitat de Va
 
 ## Screenshots
 ![Screenshot1](./img/screenshot1.jpg)
+![Screenshot2](./img/screenshot2.jpg)
+![Screenshot3](./img/screenshot3.jpg)
+![Screenshot4](./img/screenshot4.jpg)
+![Screenshot5](./img/screenshot5.jpg)
+![Screenshot6](./img/screenshot6.jpg)
 
 ## Technologies
 * Java - version 13.0.1
