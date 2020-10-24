@@ -1,9 +1,9 @@
-package es.uv.eu.photoeditor.controller;
+package es.uv.eu.linespainter.controller;
 
-import es.uv.eu.photoeditor.model.PhotoEditorModel;
-import es.uv.eu.photoeditor.view.LoadImage;
-import es.uv.eu.photoeditor.view.PhotoEditorView;
-import es.uv.eu.photoeditor.view.SaveImage;
+import es.uv.eu.linespainter.model.LinesPainterModel;
+import es.uv.eu.linespainter.view.LoadImage;
+import es.uv.eu.linespainter.view.LinesPainterView;
+import es.uv.eu.linespainter.view.SaveImage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -15,21 +15,21 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.JSlider;
 
-public class PhotoEditorController {
+public class LinesPainterController {
     
-    private PhotoEditorModel model;
-    private PhotoEditorView view;
+    private LinesPainterModel model;
+    private LinesPainterView view;
     
-    public PhotoEditorController(PhotoEditorModel model, PhotoEditorView view) {
+    public LinesPainterController(LinesPainterModel model, LinesPainterView view) {
         this.model = model;
         this.view = view;
-        view.addWindowListener(new PhotoEditorWindowListener());
-        view.setChangeListener(new PhotoEditorChangeListener());
-        view.setActionListener(new PhotoEditorActionListener());
-        view.setMouseListener(new PhotoEditorMouseListener());
+        view.addWindowListener(new LinesPainterWindowListener());
+        view.setChangeListener(new LinesPainterChangeListener());
+        view.setActionListener(new LinesPainterActionListener());
+        view.setMouseListener(new LinesPainterMouseListener());
     }
     
-    private class PhotoEditorActionListener implements ActionListener {
+    private class LinesPainterActionListener implements ActionListener {
         
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -73,14 +73,14 @@ public class PhotoEditorController {
         }
     }
     
-    private class PhotoEditorWindowListener extends WindowAdapter {
+    private class LinesPainterWindowListener extends WindowAdapter {
         @Override
         public void windowClosing(WindowEvent e) {
             System.exit(0);
         }
     }
     
-    private class PhotoEditorChangeListener implements ChangeListener {
+    private class LinesPainterChangeListener implements ChangeListener {
         @Override
         public void stateChanged(ChangeEvent ce) {
             int currentWidth = ((JSlider)ce.getSource()).getValue();
@@ -89,7 +89,7 @@ public class PhotoEditorController {
         }
     }
     
-    private class PhotoEditorMouseListener extends MouseAdapter {
+    private class LinesPainterMouseListener extends MouseAdapter {
         
         private int xStartingPoint, yStartingPoint;
 

@@ -1,4 +1,4 @@
-package es.uv.eu.photoeditor.model;
+package es.uv.eu.linespainter.model;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class PhotoEditorModel {
+public class LinesPainterModel {
     
     private BufferedImage image;
     private String imageFileName = "";
@@ -18,7 +18,7 @@ public class PhotoEditorModel {
     private Color chosenColor1 = Color.GREEN;
     private Color chosenColor2 = Color.RED;
 
-    public PhotoEditorModel() {
+    public LinesPainterModel() {
         try {
             imageFileName = "images/image.jpg";
             image = ImageIO.read(new File(imageFileName));

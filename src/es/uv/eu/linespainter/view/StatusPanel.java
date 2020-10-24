@@ -1,4 +1,4 @@
-package es.uv.eu.photoeditor.view;
+package es.uv.eu.linespainter.view;
 
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
@@ -12,7 +12,7 @@ import javax.swing.border.EtchedBorder;
 
 public class StatusPanel extends JPanel {
     
-    private PhotoEditorView view;
+    private LinesPainterView view;
     private JLabel widthText;
     private JLabel widthValueLabel;
     private JLabel color1Text;
@@ -20,7 +20,7 @@ public class StatusPanel extends JPanel {
     private JLabel color2Text;
     private JLabel color2;
     
-    public StatusPanel(PhotoEditorView view) {
+    public StatusPanel(LinesPainterView view) {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.setPreferredSize(new Dimension(1500, 50));
         this.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));

@@ -1,4 +1,4 @@
-package es.uv.eu.photoeditor.view;
+package es.uv.eu.linespainter.view;
 
 import java.awt.Color;
 import java.awt.GridLayout;

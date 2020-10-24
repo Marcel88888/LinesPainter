@@ -1,18 +1,18 @@
-package es.uv.eu.photoeditor.view;
+package es.uv.eu.linespainter.view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class PhotoEditorMenuBar extends JMenuBar {
+public class LinesPainterMenuBar extends JMenuBar {
     
     private JMenu file;
     private JMenuItem load;
     private JMenuItem save;
     private JMenuItem exit;
     
-    public PhotoEditorMenuBar() {
+    public LinesPainterMenuBar() {
         
         this.file = new JMenu("File");
         

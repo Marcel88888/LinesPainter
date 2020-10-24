@@ -1,6 +1,6 @@
-package es.uv.eu.photoeditor.view;
+package es.uv.eu.linespainter.view;
 
-import es.uv.eu.photoeditor.model.PhotoEditorModel;
+import es.uv.eu.linespainter.model.LinesPainterModel;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import javax.swing.BorderFactory;
@@ -9,9 +9,9 @@ import javax.swing.border.EtchedBorder;
 
 public class ImagePanel extends JPanel {
     
-    private PhotoEditorModel model;
+    private LinesPainterModel model;
     
-    public ImagePanel(PhotoEditorModel model) {
+    public ImagePanel(LinesPainterModel model) {
         this.model = model;
         this.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
     }

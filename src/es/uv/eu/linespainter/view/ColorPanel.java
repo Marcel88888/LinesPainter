@@ -1,4 +1,4 @@
-package es.uv.eu.photoeditor.view;
+package es.uv.eu.linespainter.view;
 
 import java.util.ArrayList;
 import java.awt.Color;

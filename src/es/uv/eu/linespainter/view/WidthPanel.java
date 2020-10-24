@@ -1,4 +1,4 @@
-package es.uv.eu.photoeditor.view;
+package es.uv.eu.linespainter.view;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -11,11 +11,11 @@ import javax.swing.event.ChangeListener;
 
 public class WidthPanel extends JPanel {
     
-    private PhotoEditorView view;
+    private LinesPainterView view;
     private JLabel sliderTitle;
     private JSlider widthSlider;
     
-    public WidthPanel(PhotoEditorView view) {
+    public WidthPanel(LinesPainterView view) {
         this.setLayout(new BorderLayout());
         this.sliderTitle = new JLabel("Thickness of the rectangle:");
         this.widthSlider = new JSlider(1, 1000);

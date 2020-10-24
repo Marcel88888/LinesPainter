@@ -1,6 +1,6 @@
-package es.uv.eu.photoeditor.view;
+package es.uv.eu.linespainter.view;
 
-import es.uv.eu.photoeditor.model.PhotoEditorModel;
+import es.uv.eu.linespainter.model.LinesPainterModel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -10,19 +10,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.event.ChangeListener;
 
-public class PhotoEditorView extends JFrame {
+public class LinesPainterView extends JFrame {
     
-    private PhotoEditorModel model;
+    private LinesPainterModel model;
     private ImagePanel imagePanel;
     private WidthPanel widthPanel;
     private StatusPanel statusPanel;
     private SelectPanel selectPanel;
-    private PhotoEditorMenuBar menu;
+    private LinesPainterMenuBar menu;
     
     
-    public PhotoEditorView(PhotoEditorModel model) {
+    public LinesPainterView(LinesPainterModel model) {
         
-        super("PhotoEditor");
+        super("LinesPainter");
         this.setLayout(new BorderLayout(17, 8));
         this.setSize(1675, 1000);
         
@@ -31,7 +31,7 @@ public class PhotoEditorView extends JFrame {
         this.widthPanel = new WidthPanel(this);
         this.statusPanel = new StatusPanel(this);
         this.selectPanel = new SelectPanel();
-        this.menu = new PhotoEditorMenuBar();
+        this.menu = new LinesPainterMenuBar();
         
         this.add(imagePanel, BorderLayout.CENTER);
         this.add(widthPanel, BorderLayout.NORTH);
@@ -43,7 +43,7 @@ public class PhotoEditorView extends JFrame {
         this.setVisible(true);
     }
 
-    public PhotoEditorModel getModel() {
+    public LinesPainterModel getModel() {
         return model;
     }
 
